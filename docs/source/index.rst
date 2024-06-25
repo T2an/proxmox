@@ -8,6 +8,5 @@ In this documentation, you will find detailed instructions on how to configure a
 --------
 
 .. toctree::
-   proxmox lab
-   usage
-   api
+   proxmox_lab
+
