@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Proxmox'
+copyright = '2024, Titouan HEYRENDT'
+author = 'Titouan HEYRENDT'
 
 release = '0.1'
 version = '0.1.0'
