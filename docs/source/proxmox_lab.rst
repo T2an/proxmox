@@ -6,16 +6,23 @@ Proxmox Lab
 Proxmox Lab
 -----------
 
-The Proxmox lab we are working on for this tutorial is composed of:
+This tutorial's Proxmox lab consists of the following components:
 
-- 2 Proxmox worker nodes
-- 1 Proxmox backup server
+- 2 Proxmox VE worker nodes
+- 1 Proxmox Backup Server
 - 1 NFS server
 
-Here is a schematic of the infrastructure:
+Below is a schematic of the infrastructure:
 
 .. image:: ./images/proxmoxlab.png
    :alt: Proxmox Lab Infrastructure
    :align: center
+
+You can download the latest versions of Proxmox VE and Proxmox Backup Server from the official Proxmox website: https://www.proxmox.com/en/downloads
+
+Please note that this lab is experimental and has the following constraints:
+
+- Only one network interface (NIC) for each server
+- Each server must establish a connection to a RADIUS server with 802.1X authentication
 
 ----------------
