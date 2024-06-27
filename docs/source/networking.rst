@@ -17,14 +17,15 @@ In this section, we will cover how to configure the various components of the Pr
 .. _Scheme:
 
 802.1X Authentication
----------------------
+=====================
+
 Due to specific constraints on our network, we need to configure **802.1X authentication** on the Proxmox server. This section will guide you through the process step-by-step.
 
 1. **Install `wpa_supplicant` Package**
 
 First, install the `wpa_supplicant` package using the following command:
 
-```
+```bash
 sudo apt install wpasupplicant
 ```
 
@@ -32,7 +33,7 @@ sudo apt install wpasupplicant
 
 Once the package is successfully installed, create a configuration directory and file, for example, under `/etc/wpa_supplicant`:
 
-```
+```bash
 sudo mkdir /etc/wpa_supplicant
 sudo touch /etc/wpa_supplicant/wpa_supplicant.conf
 sudo chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
@@ -42,31 +43,32 @@ sudo chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
 
 Edit the `wpa_supplicant.conf` file and add your configuration:
 
-```
+```bash
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 Add the following content, ensuring that your configuration matches the values expected by your authentication server:
 
-..  code-block:: bash
-    ctrl_interface=/var/run/wpa_supplicant
-    ctrl_interface_group=0
-    eapol_version=1
-    ap_scan=0
+```ini
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=0
+eapol_version=1
+ap_scan=0
 
-    network={
-        key_mgmt=IEEE8021X
-        eap=PEAP
-        identity="YourIdentity"
-        password="YourPassword"
-        phase2="auth=MSCHAPV2"
-    }
+network={
+    key_mgmt=IEEE8021X
+    eap=PEAP
+    identity="YourIdentity"
+    password="YourPassword"
+    phase2="auth=MSCHAPV2"
+}
+```
 
 4. **Restart `wpa_supplicant` Service**
 
 Restart the `wpa_supplicant` service to apply the new configuration:
 
-```
+```bash
 sudo service wpa_supplicant restart
 ```
 
@@ -74,7 +76,7 @@ sudo service wpa_supplicant restart
 
 You can check your configuration using the following command:
 
-```
+```bash
 sudo wpa_supplicant -i enp1s0f0 -D wired -c /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
@@ -82,24 +84,24 @@ sudo wpa_supplicant -i enp1s0f0 -D wired -c /etc/wpa_supplicant/wpa_supplicant.c
 
 Configure your network interface to use the `wpa_supplicant` configuration. Edit the network configuration file:
 
-```
+```bash
 sudo nano /etc/network/interfaces
 ```
 
 Modify your interface configuration as follows:
 
-..  code-block:: bash
-    auto enp1s0f0
-    iface enp1s0f0 inet dhcp
-        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-        wpa-driver wired
-
+```ini
+auto enp1s0f0
+iface enp1s0f0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+    wpa-driver wired
+```
 
 7. **Restart Networking Service**
 
 Restart the networking service to apply the changes:
 
-```
+```bash
 sudo service networking restart
 ```
 
