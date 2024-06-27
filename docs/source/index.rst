@@ -9,4 +9,5 @@ In this documentation, you will find detailed instructions on how to configure a
 
 .. toctree::
    proxmox_lab
+   networking
 
