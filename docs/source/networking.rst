@@ -14,8 +14,10 @@ The Proxmox VE servers, Proxmox Backup Server, and the NFS server are all locate
 
 In this section, we will cover how to configure the various components of the Proxmox lab.
 
+.. _Scheme:
+
 802.1X Authentication
---------------------
+---------------------
 Due to specific constraints on our network, we need to configure **802.1X authentication** on the Proxmox server. This section will guide you through the process step-by-step.
 
 1. **Install `wpa_supplicant` Package**
@@ -46,7 +48,7 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 Add the following content, ensuring that your configuration matches the values expected by your authentication server:
 
-..  code-block:: none
+..  code-block:: bash
     ctrl_interface=/var/run/wpa_supplicant
     ctrl_interface_group=0
     eapol_version=1
@@ -86,12 +88,12 @@ sudo nano /etc/network/interfaces
 
 Modify your interface configuration as follows:
 
-```
-auto enp1s0f0
-iface enp1s0f0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-    wpa-driver wired
-```
+..  code-block:: bash
+    auto enp1s0f0
+    iface enp1s0f0 inet dhcp
+        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+        wpa-driver wired
+
 
 7. **Restart Networking Service**
 
