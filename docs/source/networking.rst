@@ -1,9 +1,9 @@
-Proxmox Lab
+Networking
 ===========
 
-.. _Proxmox Lab:
+.. _Networking:
 
-Proxmox Lab
+Networking
 -----------
 
 The Proxmox VE servers, Proxmox Backup Server, and the NFS server are located in the same network and connected to a switch.
