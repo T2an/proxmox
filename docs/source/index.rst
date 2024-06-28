@@ -8,6 +8,7 @@ In this documentation, you will find detailed instructions on how to configure a
 --------
 
 .. toctree::
+   installation
    proxmox_lab
    networking
 
