@@ -34,27 +34,35 @@ Log in to the Proxmox web interface (`https://<your-proxmox-ip>:8006`) with root
 
 Navigate to `Datacenter` > `Cluster` > `Create`.
 
+
 .. image:: ./images/create_cluster.png
     :alt: Create cluster
     :align: center
 
+
 Provide a name and IP for the cluster, then click **Create**.
+
 
 .. image:: ./images/cluster_name.png
     :alt: Cluster name
     :align: center
 
+
 You should now see the newly created cluster.
+
 
 .. image:: ./images/cluster_exist.png
     :alt: Cluster exists
     :align: center
 
+
 To add a new node to the cluster, copy the "Join Information" for the next step.
+
 
 .. image:: ./images/copy_information.png
     :alt: Copy Information
     :align: center
+
 
 Joining a Proxmox Server to an Existing Cluster
 ===============================================
@@ -65,15 +73,18 @@ Copy the cluster's join information.
 
 Log in to the Proxmox web interface of the node you wish to add, then navigate to `Datacenter` > `Cluster` > `Join Cluster`.
 
+
 .. image:: ./images/join_cluster.png
     :alt: Join Cluster
     :align: center
+
 
 Next, paste the 'Join Information' from the master Proxmox server.
 
 .. image:: ./images/join_information.png
     :alt: Join information
     :align: center
+
 
 Ensure the following details match:
 - Peer Address: Address of the master server
@@ -86,9 +97,11 @@ After adding the new node, verify its status in the cluster interface to ensure 
 
 Navigate to `Datacenter` > `Cluster` to view both nodes.
 
+
 .. image:: ./images/join_success.png
     :alt: Join information
     :align: center
+
 
 Conclusion
 ==========
