@@ -118,6 +118,9 @@ If the configuration is correct, your interface should now have an IP address:
     :alt: IP address
     :align: center
 
+Network scheme example
+----------------------
+
 This is an exemple of what your cluster could look like with this configuration and 2 nodes : 
 
 .. image:: ./images/2_PX.png
