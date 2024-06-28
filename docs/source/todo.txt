@@ -1,0 +1,27 @@
+Backup : 
+
+install + connect + restore
+
+NFS : 
+
+Add and use nfs storage 
+
+SDN : 
+
+Permission : 
+
+Authentification : 
+
+Create user
+
+pam, pve, ad
+
+Pool :
+
+creating and using
+
+Template : 
+
+Container
+VM
+

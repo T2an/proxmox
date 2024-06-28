@@ -1,54 +1,10 @@
-Networking
-==========
 
-.. _Networking:
-
-Network Scheme
---------------
-
-The Proxmox VE servers, Proxmox Backup Server, and the NFS server are all located in the same network and connected to a switch.
-
-.. image:: ./images/proxmoxlab.png
-   :alt: Proxmox Lab Infrastructure
-   :align: center
-
-In this section, we will cover how to configure the various components of the Proxmox lab.
-
-.. _Scheme:
-
-Default Configuration
-=====================
-
-Your default configuration in `/etc/network/interfaces` should be the following:
-
-.. code-block:: ini
-
-    auto lo
-    iface lo inet loopback
-
-    auto enp1s0f0
-    iface eth0 inet manual
-
-    auto vmbr0
-    iface vmbr0 inet static
-        address 192.168.1.100
-        netmask 255.255.255.0
-        gateway 192.168.1.1
-        bridge_ports eth0
-        bridge_stp off
-        bridge_fd 0
-
-**`vmbr0` is a bridge interface** used by Proxmox for various purposes and should not be removed. The IP address assigned to `vmbr0` is the one you set during the initial Proxmox installation.
-
-Removing or editing the `vmbr0` bridge in Proxmox can disrupt network connectivity for VMs, containers, and management interfaces, leading to potential instability and loss of access. It is crucial to maintain this default configuration unless you have a deep understanding of the implications and a proper plan for reconfiguration and recovery.
-
-.. _defaultconfig:
-
-
-802.1X Authentication
-=====================
+802.1X Authentication (Wired)
+=============================
 
 Due to specific constraints on our network, we need to configure **802.1X authentication** on the Proxmox server. This section will guide you through the process step-by-step.
+
+You can skip this section if you don't need to authenticate in your network. 
 
 1. **Install `wpa_supplicant` Package**
 
@@ -121,10 +77,32 @@ Modify your interface configuration as follows:
 
 .. code-block:: ini
 
+    auto lo
+    iface lo inet loopback
+
     auto enp1s0f0
     iface enp1s0f0 inet dhcp
-        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-        wpa-driver wired
+
+    auto vmbr0
+    iface vmbr0 inet static
+        address 137.204.71.28
+        netmask 255.255.255.0
+        gateway 137.204.71.254
+        bridge-ports enp1s0f0
+        bridge-stp off
+        bridge-fd 0
+
+    wpa-iface enp1s0f0
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+    wpa-driver wired
+    wpa-bridge vmbr0
+
+In this setup, Proxmox requires the bridge (vmbr0) to be configured with a static IP address. However, we also need to utilize DHCP on the physical interface (enp1s0f0) to communicate with the RADIUS server for network authentication.
+
+Specifically, the physical interface enp1s0f0 is set to obtain its IP address dynamically via DHCP, while the bridge (vmbr0) is configured with a static IP address. This static IP address assigned to vmbr0 by your DHCP server should remain consistent to ensure stable connectivity for your Proxmox server.
+
+Ensure that your DHCP server is configured to always assign the same IP address to the MAC address of your Proxmox server. This guarantees that the Proxmox server maintains reliable network access and remains reachable within your network infrastructure.
+
 
 7. **Restart Networking Service**
 

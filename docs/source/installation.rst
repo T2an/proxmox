@@ -1,22 +1,22 @@
 Proxmox Installation Guide
 ==========================
 
-1. **Prepare Installation Media**
+**Prepare Installation Media**
 --------------------------------
-- **Download Proxmox ISO**: Go to the [Proxmox VE download page](https://www.proxmox.com/en/downloads) and download the latest ISO image.
+- **Download Proxmox ISO**: Go to the https://www.proxmox.com/en/downloads and download the latest ISO image.
 - **Create Bootable Media**: Use a tool like Ventoy (Linux) or Rufus (Windows) to create a bootable USB stick from the downloaded ISO.
 
 .. image:: ./images/iso.png
     :alt: Proxmox ISO download
     :align: center
 
-2. **Boot from Installation Media**
+**Boot from Installation Media**
 ----------------------------------
 - Insert the bootable USB stick into your server.
 - Boot the server and enter the BIOS/UEFI setup to set the USB stick as the primary boot device.
 - Save changes and restart the server. The Proxmox installer should start.
 
-3. **Install Proxmox VE**
+**Install Proxmox VE**
 ------------------------
 - **Welcome Screen**: Select "Install Proxmox VE" and press Enter.
 - **EULA**: Read and accept the End User License Agreement (EULA) to proceed.
@@ -33,7 +33,7 @@ Proxmox Installation Guide
 
 - **Start Installation**: Review the summary and click "Install" to begin the installation. This process will take several minutes.
 
-4. **Initial Setup and Access**
+**Initial Setup and Access**
 ------------------------------
 - **Reboot**: After installation completes, remove the installation media and reboot the server.
 - **Access Web Interface**: Once the server boots up, access the Proxmox web interface from a browser on a computer on the same network:
@@ -48,7 +48,7 @@ Proxmox Installation Guide
     :alt: Accessing Proxmox GUI
     :align: center
 
-5. **Post-Installation Configuration**
+**Post-Installation Configuration**
 -------------------------------------
 - **Update Proxmox VE**:
 - Open a terminal on the Proxmox server or use SSH to connect.
