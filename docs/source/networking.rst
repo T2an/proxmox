@@ -53,6 +53,7 @@ To create your SDN, follow these steps:
     :alt: Add SDN Zone
     :align: center
 
+
 2. **Choose the "Simple" option**:
 
    - **Id**: The name of the Zone.
@@ -65,6 +66,7 @@ You can also add a DNS and reverse DNS. Make sure to choose the **"Automatic DHC
     :alt: SDN Options
     :align: center
 
+
 Adding a Virtual Network (VNets)
 --------------------------------
 
@@ -76,6 +78,7 @@ Next, you need to add a Virtual Network (VNet):
     :alt: Add VNets
     :align: center
 
+
 2. **Configure the VNet**:
 
    - **Name**: Can be the same as the Zone.
@@ -85,7 +88,9 @@ Next, you need to add a Virtual Network (VNet):
     :alt: VNet Options
     :align: center
 
-### Adding a Subnet
+
+Adding a Subnet
+---------------
 
 Once the VNet is created, you need to add a Subnet:
 
@@ -94,6 +99,7 @@ Once the VNet is created, you need to add a Subnet:
 .. image:: ./images/VNETS_created.png
     :alt: VNets
     :align: center
+
 
 2. **Configure the Subnet**:
 
@@ -105,7 +111,9 @@ Once the VNet is created, you need to add a Subnet:
     :alt: Subnet Options
     :align: center
 
-### Setting DHCP Ranges
+
+Setting DHCP Ranges
+-------------------
 
 Configure the range of IP addresses for your cluster:
 
@@ -116,7 +124,9 @@ Configure the range of IP addresses for your cluster:
     :alt: DHCP Range Configuration
     :align: center
 
-### Applying the Configuration
+
+Applying the Configuration
+--------------------------
 
 After configuring your VNets and Subnets, apply the configuration:
 
@@ -126,15 +136,16 @@ After configuring your VNets and Subnets, apply the configuration:
     :alt: Apply SDN Configuration
     :align: center
 
+
 After a few seconds, you should see a success message:
 
 .. image:: ./images/SDN_success.png
     :alt: SDN Configuration Success
     :align: center
 
-You now have a functional Software-Defined Network. The next step is to create a container with the SDN.
-
 Conclusion
 ==========
 
 By following these steps, you can configure your Proxmox network to enable efficient communication and management of your VMs and containers. Leveraging Software-Defined Networking (SDN) provides flexibility, scalability, and centralized control, ensuring your virtual environment is robust and easy to manage.
+
+Your Software-Defined Network (SDN) is now fully operational. The next step is to create a container utilizing this SDN configuration.
