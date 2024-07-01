@@ -21,24 +21,29 @@ Each server has only one network interface (NIC) and a bridge. The interface is 
     :alt: Proxmox Cluster
     :align: center
 
+
 You can check your network configuration in `Datacenter > Servername > Network`:
 
 .. image:: ./images/ntw_conf.png
     :alt: Network Configuration on GUI
     :align: center
 
-### The Issue
+
+The Issue
+---------
 
 The main issue here is the limited IP pool, which restricts configuring VMs with IPs from the same network. To solve this, we need to create a local network using Software-Defined Networking (SDN).
 
 Software-Defined Networking (SDN)
 =================================
 
-### What is SDN?
+What is SDN?
+------------
 
 **Software-Defined Networking (SDN)** in Proxmox allows you to create a flexible and scalable network. It separates the control plane from the data plane, enabling centralized management of network resources.
 
-### Creating an SDN Zone
+Creating an SDN Zone
+--------------------
 
 To create your SDN, follow these steps:
 
@@ -60,7 +65,8 @@ You can also add a DNS and reverse DNS. Make sure to choose the **"Automatic DHC
     :alt: SDN Options
     :align: center
 
-### Adding a Virtual Network (VNets)
+Adding a Virtual Network (VNets)
+--------------------------------
 
 Next, you need to add a Virtual Network (VNet):
 
