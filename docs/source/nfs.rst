@@ -59,6 +59,15 @@ After adding the NFS storage, it's a good practice to test it to ensure everythi
     :alt: Create container using template in NFS
     :align: center
 
+New Network Scheme
+------------------
+
+You're new network scheme should be the following : 
+
+.. image:: ./images/NFS_scheme.png
+    :alt: NFS scheme
+    :align: center
+
 Conclusion
 ----------
 

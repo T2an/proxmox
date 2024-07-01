@@ -15,5 +15,6 @@ In this documentation, you will find detailed instructions on how to configure a
    networking
    container
    nfs
+   backup
    proxmox_lab
 

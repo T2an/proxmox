@@ -112,7 +112,7 @@ You should see the message "TASK OK".
 
 Sometimes, the container might not start automatically even with the "Start after created" option. In that case, you can start it manually.
 
-.. image:: ./images/start_container.png
+.. image:: ./images/start_CT.png
     :alt: Start Container Button
     :align: center
 
@@ -128,11 +128,22 @@ Access your container terminal by clicking on your container and then selecting 
 
 
 **Verification**:
+
 - Check that the first IP of the pool defined in the SDN section has been assigned to your container.
+
 - Test the NAT configuration by pinging an external IP.
 
 .. image:: ./images/CT_test.png
     :alt: Container Console Test
+    :align: center
+
+New Network Scheme
+------------------
+
+You're new network scheme should be the following : 
+
+.. image:: ./images/SDN_CT_scheme.png
+    :alt: SDN CT scheme
     :align: center
 
 Conclusion

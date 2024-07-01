@@ -128,10 +128,7 @@ Configure the range of IP addresses for your cluster:
 Applying the Configuration
 --------------------------
 
-After configuring your VNets and Subnets, apply the configuration:
-
-1. **Navigate to Datacenter > SDN and click "Apply"**:
-
+After configuring your VNets and Subnets, applyConclusion
 .. image:: ./images/SDN_apply.png
     :alt: Apply SDN Configuration
     :align: center
@@ -141,6 +138,15 @@ After a few seconds, you should see a success message:
 
 .. image:: ./images/SDN_success.png
     :alt: SDN Configuration Success
+    :align: center
+
+New Network Scheme
+------------------
+
+A SDN with the ip you've defined have been created on each of your node. Your network should now look the following. 
+
+.. image:: ./images/SDN_scheme.png
+    :alt: SDN scheme
     :align: center
 
 Conclusion
