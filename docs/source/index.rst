@@ -13,5 +13,7 @@ In this documentation, you will find detailed instructions on how to configure a
    8021X
    cluster_join
    networking
+   container
+   nfs
    proxmox_lab
 
