@@ -12,5 +12,6 @@ In this documentation, you will find detailed instructions on how to configure a
    default_config
    8021X
    cluster_join
+   networking
    proxmox_lab
 
