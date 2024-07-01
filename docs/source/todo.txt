@@ -25,3 +25,6 @@ Template :
 Container
 VM
 
+Dernier action vendredi 17:45 
+
+J'ai pris un screen de la creation de VNETS mais je l'ai pas créé. J'ai créé la zone avant. Je dois finir la doc sur la partie SDN

@@ -107,3 +107,5 @@ Conclusion
 ==========
 
 Following these steps enables you to create a Proxmox cluster and expand it with additional nodes, facilitating centralized management and improving reliability across your virtualization environment.
+
+In the next section, we will cover how to set up the network for the Proxmox cluster.

@@ -1,7 +1,11 @@
 Default Network Configuration
 =============================
 
-The default configuration in `/etc/network/interfaces` should be as follows:
+The default network configuration of your proxmox server should be the following, you can find it in this file :
+
+.. code-block:: bash
+
+    cat /etc/network/interfaces
 
 .. code-block:: ini
 
