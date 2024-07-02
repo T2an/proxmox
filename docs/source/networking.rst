@@ -97,7 +97,7 @@ Once the VNet is created, you need to add a Subnet:
 
 1. **Select the VNet and click "Create" in the Subnet section (right)**:
 
-.. image:: ./images/VNETS_created.png
+.. image:: ./images/VNET_created.png
     :alt: VNets
     :align: center
 
@@ -129,7 +129,8 @@ Configure the range of IP addresses for your cluster:
 Applying the Configuration
 --------------------------
 
-After configuring your VNets and Subnets, applyConclusion
+After configuring your VNets and Subnets, click Apply : 
+
 .. image:: ./images/SDN_apply.png
     :alt: Apply SDN Configuration
     :align: center
