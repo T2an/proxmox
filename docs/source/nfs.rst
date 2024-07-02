@@ -25,7 +25,7 @@ You will be prompted to set several parameters:
      - **Export**: Use `/srv/nfs_share` or the appropriate export path on your NFS server.
      - **Content**: Select the types of content you want to store on your NFS server.
 
-.. image:: ./images/options.png
+.. image:: ./images/nfs_options.png
     :alt: NFS options
     :align: center
 
