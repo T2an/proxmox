@@ -10,10 +10,13 @@ Installing Proxmox Backup Server
    - Visit the `Proxmox Download page <https://www.proxmox.com/en/downloads>`_ and download the latest Proxmox Backup Server ISO image.
 
 2. **Create a Bootable USB Drive**:
+
    - Use a tool like `Ventoy <https://www.ventoy.net>`_ (Linux) or `Rufus <https://rufus.ie>`_ (Windows) to create a bootable USB stick from the downloaded ISO.
 
 3. **Install Proxmox Backup Server**:
+
    - Boot from the USB drive on the server where you want to install PBS.
+
    - Follow the installation prompts to complete the setup.
 
 .. note::
@@ -27,7 +30,7 @@ Configuring Proxmox Backup Server
 ---------------------------------
 
 1. **Initial Setup**:
-   - After installation, access the PBS web interface using the IP address of your PBS server (e.g., `https://<PBS-IP>:8007`).
+   - After installation, access the PBS web interface using the IP address of your PBS server (https://<PBS-IP>:8007).
    - Log in with the root user and the password you set during installation.
 
 2. **Adding a User**:
@@ -58,7 +61,7 @@ Configuring Proxmox Backup Server
    - Navigate to `Datacenter > Dashboard` and copy the server fingerprint.
    - This fingerprint will be used to authenticate the connection between Proxmox VE and PBS.
 
-.. image:: ./images/fingerprint.png
+.. image:: ./images/pbs_fingerprint.png
     :alt: Copying the fingerprint
     :align: center
 
