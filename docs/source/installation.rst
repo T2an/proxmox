@@ -50,7 +50,9 @@ Proxmox Installation Guide
 
 **Post-Installation Configuration**
 -------------------------------------
-- **Update Proxmox VE**:
+
+**Update Proxmox VE**:
+
 - Open a terminal on the Proxmox server or use SSH to connect.
 - Update the package lists and upgrade all installed packages:
 

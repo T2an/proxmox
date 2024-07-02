@@ -28,11 +28,13 @@ Configuring NFS Storage
     :alt: NFS options
     :align: center
 
-   The available content types include:
-   - ISO image
-   - Container template
-   - Backups
-   - Disk image
+
+    The available content types include:
+    
+    - ISO image
+    - Container template
+    - Backups
+    - Disk image
 
    In the following example, we chose to store ISO images and container templates.
 

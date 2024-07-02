@@ -25,9 +25,11 @@ Creating a Proxmox Cluster
 ===========================
 
 **Configure Network:**
+
 Ensure all servers are on the same subnet and can communicate with each other.
 
 **Enable Proxmox Cluster:**
+
 Log in to the Proxmox web interface (`https://<your-proxmox-ip>:8006`) with root credentials.
 
 **Create the Cluster:**
@@ -87,9 +89,13 @@ Next, paste the 'Join Information' from the master Proxmox server.
 
 
 Ensure the following details match:
+
 - Peer Address: Address of the master server
+
 - Password: Root password of the master server
+
 - Fingerprint: Compare with the master server's fingerprint (found in 'Join Information')
+
 - Cluster Network: IP address of the current node
 
 **Verify Cluster Status:**
