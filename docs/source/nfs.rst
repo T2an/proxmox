@@ -17,7 +17,8 @@ Configuring NFS Storage
     :align: center
 
 3. **Set NFS Storage Options**:
-   - You will be prompted to set several parameters:
+
+You will be prompted to set several parameters:
 
      - **ID**: The name of the NFS storage.
      - **Server**: The IP address of the NFS server.
@@ -28,13 +29,12 @@ Configuring NFS Storage
     :alt: NFS options
     :align: center
 
+The available content types include:
 
-    The available content types include:
-    
-    - ISO image
-    - Container template
-    - Backups
-    - Disk image
+    - **ISO image**
+    - **Container template**
+    - **Backups**
+    - **Disk image**
 
    In the following example, we chose to store ISO images and container templates.
 
