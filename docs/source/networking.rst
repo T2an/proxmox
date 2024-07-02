@@ -1,5 +1,5 @@
 ===========================
-Proxmox Network Configuration Guide
+Network Configuration With SDN
 ===========================
 
 Introduction
@@ -11,6 +11,7 @@ Once you have a working Proxmox cluster, configuring the network is essential to
 - Enable communication between containers and VMs on different nodes.
 - Provide internet access to containers and VMs.
 - Set up DHCP.
+- ...
 
 Current Network Configuration
 =============================
