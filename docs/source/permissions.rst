@@ -75,12 +75,11 @@ Step-by-Step Permissions Configuration
 
 2. **Configure Resource Pool Permissions**:
 
-   - Go to the newly created resource pool.
-   - Navigate to `Permissions` and click **Add**.
-   - Configure permissions for the "Research_team" group:
-
-     1. `PVEPoolUser`: Allows the group to use the pool.
-     2. `PVEVMAdmin`: Allows members to create and manage VMs/LXCs within the pool.
+    - Go to the newly created resource pool.
+    - Navigate to `Permissions` and click **Add**.
+    - Configure permissions for the "Research_team" group:
+    1. `PVEPoolUser`: Allows the group to use the pool.
+    2. `PVEVMAdmin`: Allows members to create and manage VMs/LXCs within the pool.
 
    .. image:: ./images/pool2.png
        :alt: Configuring Resource Pool Permissions
@@ -88,12 +87,11 @@ Step-by-Step Permissions Configuration
 
 3. **Configure NFS Storage Permissions**:
 
-   - Go to the NFS storage.
-   - Navigate to `Permissions` and click **Add**.
-   - Add the following permissions for the "Research_team" group:
-
-     1. `PVEDatastoreAdmin`: Allows using and storing LXC templates and VM ISOs.
-     2. `PVETemplateUser`: Allows cloning container/VM templates stored on this storage.
+    - Go to the NFS storage.
+    - Navigate to `Permissions` and click **Add**.
+    - Add the following permissions for the "Research_team" group:
+    1. `PVEDatastoreAdmin`: Allows using and storing LXC templates and VM ISOs.
+    2. `PVETemplateUser`: Allows cloning container/VM templates stored on this storage.
 
    .. image:: ./images/nfs_perm.png
        :alt: Configuring NFS Storage Permissions
@@ -101,12 +99,11 @@ Step-by-Step Permissions Configuration
 
 4. **Configure Local-lvm Storage Permissions**:
 
-   - Go to local-lvm storage.
-   - Navigate to `Permissions` and click **Add**.
-   - Add the following permissions for the "Research_team" group:
-
-     1. `PVEDatastoreAdmin`: Allows using this storage for LXC/VM storage.
-     2.  `PVEVMAdmin`: Allows creating, modifying, and using LXCs/VMs.
+    - Go to local-lvm storage.
+    - Navigate to `Permissions` and click **Add**.
+    - Add the following permissions for the "Research_team" group:
+    1. `PVEDatastoreAdmin`: Allows using this storage for LXC/VM storage.
+    2.  `PVEVMAdmin`: Allows creating, modifying, and using LXCs/VMs.
 
    .. image:: ./images/locallvm_perm.png
        :alt: Configuring Local-lvm Storage Permissions
@@ -114,11 +111,10 @@ Step-by-Step Permissions Configuration
 
 5. **Configure Backup Storage Permissions**:
 
-   - Go to the backup storage.
-   - Navigate to `Permissions` and click **Add**.
-   - Add the following permission for the "Research_team" group:
-
-     1. `PVEDatastoreAdmin`: Allows using this storage for backups.
+    - Go to the backup storage.
+    - Navigate to `Permissions` and click **Add**.
+    - Add the following permission for the "Research_team" group:
+    1. `PVEDatastoreAdmin`: Allows using this storage for backups.
 
    .. image:: ./images/backup_perm.png
        :alt: Configuring Backup Storage Permissions
@@ -126,11 +122,10 @@ Step-by-Step Permissions Configuration
 
 6. **Configure SDN Permissions**:
 
-   - Go to your SDN.
-   - Navigate to `Permissions` and click **Add**.
-   - Add the following permission for the "Research_team" group:
-
-     1. `PVESDNUser`: Allows using the SDN to configure LXCs/VMs.
+    - Go to your SDN.
+    - Navigate to `Permissions` and click **Add**.
+    - Add the following permission for the "Research_team" group:
+    1. `PVESDNUser`: Allows using the SDN to configure LXCs/VMs.
 
    .. image:: ./images/SDN_perm.png
        :alt: Configuring SDN Permissions
