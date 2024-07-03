@@ -9,9 +9,11 @@ Creating Groups
 Groups simplify the management of privileges for multiple users. Follow these steps to create a group:
 
 1. **Navigate to Group Management**:
+
    - Go to `Datacenter > Permissions > Groups`.
 
 2. **Create a New Group**:
+
    - Click **Create** and enter a name for the group.
 
 For this documentation, we created two groups:
@@ -32,10 +34,12 @@ You can assign users to these groups when creating them or by editing existing u
 For this example, we created three users:
 
 - **Members of the "Research_team" group**:
+
   - Alice
   - Bob
 
 - **Member of the "Student" group**:
+
   - Toto
 
 Permissions Management
@@ -45,8 +49,8 @@ By default, users have no permissions and can only connect to the cluster. Detai
 
 You can manage privileges in two places:
 
-1. `Datacenter > Permissions`
-2. By clicking on a component (Storage, Network, VM, LXC, Pools, etc.) and navigating to Permissions.
+- `Datacenter > Permissions`
+- By clicking on a component (Storage, Network, VM, LXC, Pools, etc.) and navigating to Permissions.
 
 In this example, we will set the minimum permissions to allow the Research_team to:
 
@@ -55,7 +59,8 @@ In this example, we will set the minimum permissions to allow the Research_team 
 - Use and create backups
 - Use the SDN to configure VM/LXCs
 
-### Step-by-Step Permissions Configuration
+Step-by-Step Permissions Configuration
+--------------------------------------
 
 1. **Create a Resource Pool**:
 
@@ -73,6 +78,7 @@ In this example, we will set the minimum permissions to allow the Research_team 
    - Go to the newly created resource pool.
    - Navigate to `Permissions` and click **Add**.
    - Configure permissions for the "Research_team" group:
+
      - `PVEPoolUser`: Allows the group to use the pool.
      - `PVEVMAdmin`: Allows members to create and manage VMs/LXCs within the pool.
 
@@ -85,6 +91,7 @@ In this example, we will set the minimum permissions to allow the Research_team 
    - Go to the NFS storage.
    - Navigate to `Permissions` and click **Add**.
    - Add the following permissions for the "Research_team" group:
+
      - `PVEDatastoreAdmin`: Allows using and storing LXC templates and VM ISOs.
      - `PVETemplateUser`: Allows cloning container/VM templates stored on this storage.
 
@@ -97,6 +104,7 @@ In this example, we will set the minimum permissions to allow the Research_team 
    - Go to local-lvm storage.
    - Navigate to `Permissions` and click **Add**.
    - Add the following permissions for the "Research_team" group:
+
      - `PVEDatastoreAdmin`: Allows using this storage for LXC/VM storage.
      - `PVEVMAdmin`: Allows creating, modifying, and using LXCs/VMs.
 
@@ -109,6 +117,7 @@ In this example, we will set the minimum permissions to allow the Research_team 
    - Go to the backup storage.
    - Navigate to `Permissions` and click **Add**.
    - Add the following permission for the "Research_team" group:
+
      - `PVEDatastoreAdmin`: Allows using this storage for backups.
 
    .. image:: ./images/backup_perm.png
@@ -120,6 +129,7 @@ In this example, we will set the minimum permissions to allow the Research_team 
    - Go to your SDN.
    - Navigate to `Permissions` and click **Add**.
    - Add the following permission for the "Research_team" group:
+
      - `PVESDNUser`: Allows using the SDN to configure LXCs/VMs.
 
    .. image:: ./images/SDN_perm.png
@@ -147,4 +157,4 @@ Conclusion
 
 Proxmox VE's user management system is robust and versatile, enabling detailed control over user permissions and access. By following these steps, you can effectively manage user roles and ensure a secure and organized virtual environment.
 
-In the next section, we will cover advanced networking configurations in Proxmox VE.
+In the next section, we will cover how to import and use an ISO image.
