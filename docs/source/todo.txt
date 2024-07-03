@@ -1,30 +1,17 @@
-Backup : 
-
-install + connect + restore
-
-NFS : 
-
-Add and use nfs storage 
-
-SDN : 
 
 Permission : 
+    Create user
 
-Authentification : 
-
-Create user
-
-pam, pve, ad
+    pam, pve, ad
 
 Pool :
 
-creating and using
+    creating and using
 
 Template : 
 
-Container
-VM
+    VM
 
-Dernier action vendredi 17:45 
 
-J'ai pris un screen de la creation de VNETS mais je l'ai pas créé. J'ai créé la zone avant. Je dois finir la doc sur la partie SDN
+
+Test slurm 

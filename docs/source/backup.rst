@@ -163,12 +163,25 @@ Restoring from Backup
    - Navigate to your container/VM > `Backup`.
 
    - Select the desired snapshot.
-   
+
    - Click **Restore**.
 
 .. image:: ./images/restore.png
     :alt: Restoring from a backup
     :align: center
+
+
+New Network Scheme
+------------------
+
+You now have a functional Proxmox Backup Server, ready to host your VM and LXC backup ! 
+
+If you're following this guide, your network should now look the following : 
+
+.. image:: ./images/backup.png
+    :alt: Network scheme
+    :align: center
+
 
 Conclusion
 ----------
