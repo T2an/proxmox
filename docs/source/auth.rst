@@ -51,11 +51,12 @@ LDAP (Lightweight Directory Access Protocol) allows the integration of an extern
     - Once the LDAP server is added, you can authenticate users from the LDAP directory.
     - Navigate to `Datacenter > Permissions > Users` and add users from the LDAP realm.
 
+
 .. image:: ./images/LDAP_user.png
     :alt: Adding an LDAP user
     :align: center
 
-    - you can now connect using this LDAP user, make sure to choose this authentication method while connecting. 
+You can now connect using this LDAP user, make sure to choose this authentication method while connecting. 
 
 Conclusion
 ----------
