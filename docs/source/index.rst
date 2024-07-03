@@ -16,5 +16,6 @@ In this documentation, you will find detailed instructions on how to configure a
    container
    nfs
    backup
+   auth
 
 
