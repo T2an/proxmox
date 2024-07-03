@@ -18,5 +18,6 @@ In this documentation, you will find detailed instructions on how to configure a
    backup
    auth
    permissions
+   VM_ISO
 
 
