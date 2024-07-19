@@ -14,10 +14,12 @@ In this documentation, you will find detailed instructions on how to configure a
    cluster_join
    networking
    container
+   evpn
    nfs
    backup
    auth
    permissions
    vm_iso
+   ceph
 
 

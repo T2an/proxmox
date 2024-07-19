@@ -151,4 +151,4 @@ Conclusion
 
 You have successfully created and tested a container within your Proxmox cluster using the SDN configuration. This ensures that your cluster and SDN setup are functioning correctly.
 
-In the next section, we will see how to add an NFS storage to your Proxmox cluster.
+In the next section, we will cover how to create an other type of SDN, EVPN, which allow you to have full connectivity over your network. 
