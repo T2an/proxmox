@@ -1,0 +1,29 @@
+
+lsblk
+sudo parted /dev/nvme0n1
+    print
+    resizepart 3 180GB
+    print
+    mkpart primary ext4 190GB 475GB
+    print
+
+sudo pvresize /dev/nvme0n1p3
+lsblk
+
+iptables -t nat -A PREROUTING -p tcp --dport 4646 -d 137.204.71.20 -j DNAT --to-destination 10.10.10.53:4646
+iptables -t nat -A POSTROUTING -p tcp --dport 4646 -d 10.10.10.53 -j SNAT --to-source 137.204.71.20
+
+
+
+-------------------------------------------
+
+hostname proxmox1
+
+echo "nameserver 8.8.8.8" > /etc/resolv.conf 
+
+nano /etc/hosts
+
+192.168.13.111 proxmox1
+192.168.13.117 proxmox2
+192.168.13.119 proxmox3
+

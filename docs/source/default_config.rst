@@ -23,7 +23,7 @@ The default network configuration of your proxmox server should be the following
         bridge_ports enp1s0f0
         bridge_stp off
         bridge_fd 0
-
+    source /etc/network/interfaces.d/*
 **`vmbr0` is a bridge interface** used by Proxmox for various purposes and should not be removed. The IP address assigned to `vmbr0` is the one configured during the initial Proxmox installation.
 
 **Important:**

@@ -96,6 +96,7 @@ Modify your interface configuration as follows:
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
     wpa-driver wired
     wpa-bridge vmbr0
+    source /etc/network/interfaces.d/*
 
 In this setup, Proxmox requires the bridge (vmbr0) to be configured with a static IP address. However, we also need to utilize DHCP on the physical interface (enp1s0f0) to communicate with the RADIUS server for network authentication.
 
