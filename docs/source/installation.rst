@@ -68,7 +68,7 @@ Proxmox Installation Guide
     rm /etc/apt/sources.list.d/pve-enterprise.list
     echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" | tee -a /etc/apt/sources.list
     echo "deb http://download.proxmox.com/debian/ceph-reef bookworm no-subscription" > /etc/apt/sources.list.d/ceph.list
-    sudo apt update
+    apt update
 
 
 By following these steps, you will have a fully functional Proxmox VE server ready for creating and managing virtual machines and containers, and joining a cluster.
