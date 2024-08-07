@@ -21,19 +21,19 @@ Use the Proxmox VE web interface to create and configure the Ceph cluster.
 
 **Install Ceph**:
 
-   - Navigate to `Datacenter > Nodename > Ceph` and click **Configure Ceph** on each node.
+   Navigate to `Datacenter > Nodename > Ceph` and click **Configure Ceph** on each node.
 
    .. image:: ./images/create_ceph.png
        :alt: Create Ceph Cluster
        :align: center
 
-    In this bottom right corner, choose "No-Subscription" then click "start installation"
-    Click "start inslation" and wait for the installation
-    Don't leave the installation windows and go to the "Configuration" section
-    Set the Public Network IP and Cluster Network IP, in our case it is both 137.204.71.20/24.
+   In this bottom right corner, choose "No-Subscription" then click "start installation"
+   Click "start inslation" and wait for the installation
+   Don't leave the installation windows and go to the "Configuration" section
+   Set the Public Network IP and Cluster Network IP, in our case it is both 137.204.71.20/24.
 
-    By ticking "Advanced" you can choose the number of replicas and minmum number of replicas.
-    (Explain what it is)
+   By ticking "Advanced" you can choose the number of replicas and minmum number of replicas.
+   (Explain what it is)
 
  **Add Ceph OSDs**:
    - Ceph OSDs (Object Storage Daemons) are responsible for storing data and handling data replication.
@@ -44,7 +44,7 @@ Use the Proxmox VE web interface to create and configure the Ceph cluster.
        :alt: Add Ceph OSD
        :align: center
     
-    You have to perform this operation in everynode that have a storage device to share. The total available space of your Ceph storage will be the sums of all your storage / The number of replicas
+   You have to perform this operation in everynode that have a storage device to share. The total available space of your Ceph storage will be the sums of all your storage / The number of replicas
 
 **Verify the Ceph Cluster**:
 
