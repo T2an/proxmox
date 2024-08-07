@@ -27,3 +27,107 @@ nano /etc/hosts
 192.168.13.117 proxmox2
 192.168.13.119 proxmox3
 
+sudo wipefs --all /dev/sdb
+
+
+--------------------------------
+
+sudo apt install isc-dhcp-server
+
+sudo nano /etc/dhcp/dhcpd.conf
+
+
+subnet 192.168.13.0 netmask 255.255.255.0 {
+    range 192.168.13.150 192.168.13.250;
+    option routers 192.168.13.254;
+    option subnet-mask 255.255.255.0;
+    option domain-name-servers 8.8.8.8, 8.8.4.4;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+
+systemctl enable --now isc-dhcp-server
+
+
+---------------------------------------
+
+nano /etc/systemd/system/nomad.service
+
+[Unit]
+Description=Nomad
+Documentation=https://www.nomadproject.io/docs/
+After=network.target
+
+[Service]
+ExecStart=nomad agent -config=/etc/nomad.d/nomad.hcl
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl enable nomad
+sudo systemctl start nomad
+
+----------------------------
+
+Rename Ceph Storage : 
+storage_shared
+storage_images
+
+Hostname of proxmox nodes 
+
+Nomad acces ctrl
+https://mpolinowski.github.io/docs/DevOps/Hashicorp/2021-08-08--hashicorp-nomad-access-control-lists/2021-08-08/
+
+
+
+Volume CSI
+
+[root@nomad1 ~]# nomad acl bootstrap
+Accessor ID  = 91ed1086-8bd1-1aa8-a128-ea7ec0426802
+Secret ID    = d190eceb-af57-4609-ecac-24a6537fbee6
+Name         = Bootstrap Token
+Type         = management
+Global       = true
+Create Time  = 2024-08-05 12:28:04.421836905 +0000 UTC
+Expiry Time  = <none>
+Create Index = 9403
+Modify Index = 9403
+Policies     = n/a
+
+
+
+datacenter = "dc1"
+name = "server-client-node"
+
+server {
+  enabled          = true
+  bootstrap_expect = 1
+}
+
+client {
+  enabled = true
+
+
+  options {
+    "driver.raw_exec.enable" = "1"
+  }
+}
+
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
+}
+
+plugin "docker" {
+  config {
+    volumes {
+      enabled = true
+    }
+  }
+}

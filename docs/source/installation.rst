@@ -58,8 +58,8 @@ Proxmox Installation Guide
 
 .. code-block:: bash
 
-    sudo apt update
-    sudo apt full-upgrade -y
+    apt update
+    apt full-upgrade -y
 
 - **Subscription Notice**: If you don't have a Proxmox subscription, you need to disable the subscription notice. Otherwise, Proxmox won't be able to download any packages from the repository.
 
@@ -70,5 +70,17 @@ Proxmox Installation Guide
     echo "deb http://download.proxmox.com/debian/ceph-reef bookworm no-subscription" > /etc/apt/sources.list.d/ceph.list
     apt update
 
+**Set Hostname and other Proxmox host**:
 
-By following these steps, you will have a fully functional Proxmox VE server ready for creating and managing virtual machines and containers, and joining a cluster.
+.. code-block:: bash
+
+    hostname proxmox1
+    echo proxmox1 > /etc/hostname
+    echo "nameserver 8.8.8.8" > /etc/resolv.conf 
+    nano /etc/hosts
+    137.204.71.20 proxmox1
+    137.204.71.28 proxmox2
+
+    
+Reboot your node. By following these steps, you will have a fully functional Proxmox VE server ready for creating and managing virtual machines and containers, and joining a cluster.
+You can access the proxmox UI using you web browser :  https://proxmoxip:8006/
