@@ -21,5 +21,6 @@ In this documentation, you will find detailed instructions on how to configure a
    permissions
    vm_iso
    ceph
+   nomad
 
 

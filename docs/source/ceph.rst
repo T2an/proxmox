@@ -22,7 +22,7 @@ Installing Ceph on Proxmox VE
 
 Use the Proxmox VE web interface to create and configure the Ceph cluster.
 
-### Install Ceph
+Install Ceph
 
 1. Navigate to `Datacenter > NodeName > Ceph` and click **Configure Ceph** on each node.
 
@@ -36,7 +36,7 @@ Use the Proxmox VE web interface to create and configure the Ceph cluster.
 
    By ticking **Advanced**, you can choose the number of replicas and minimum number of replicas. Replicas determine the number of copies of the data. The minimum number of replicas defines the least number of replicas needed for the system to function correctly.
 
-### Add Ceph OSDs
+Add Ceph OSDs
 
 Ceph OSDs (Object Storage Daemons) are responsible for storing data and handling data replication. You need to completely clear the disk you're going to use as an OSD.
 
@@ -55,7 +55,7 @@ Ceph OSDs (Object Storage Daemons) are responsible for storing data and handling
       :alt: Add Ceph OSD Check
       :align: center
 
-### Create Ceph Pools
+Create Ceph Pools
 
 A Ceph pool allows you to aggregate all your storage and use it for storing your VMs.
 
@@ -65,7 +65,7 @@ A Ceph pool allows you to aggregate all your storage and use it for storing your
        :alt: Add Ceph Pool
        :align: center
 
-### Verify the Ceph Cluster
+Verify the Ceph Cluster
 
 - Verify the health of the Ceph cluster by navigating to `Datacenter > Ceph > Status`.
 - Ensure that the cluster is in a healthy state (**HEALTH_OK**).
@@ -103,5 +103,3 @@ Conclusion
 ----------
 
 By following these steps, you have successfully installed and configured Ceph and CephFS on Proxmox VE. This setup provides a robust, scalable storage solution for your virtual environment, allowing you to take full advantage of Ceph's distributed architecture and high availability.
-
-In the next section, we will cover advanced networking configurations in Proxmox VE.
