@@ -7,6 +7,7 @@ Prerequisites
 -------------
 
 Before starting, ensure you have:
+
 - Proxmox VE installed and configured.
 - Access to the Proxmox web interface.
 - Basic knowledge of Linux commands.
@@ -14,7 +15,8 @@ Before starting, ensure you have:
 Step 1: Create Nomad Containers
 -------------------------------
 
-### Download LXC Template
+Download LXC Template
+^^^^^^^^^^^^^^^^^^^^^
 
 1. Go to your image storage in Proxmox and download the **Rocky Linux 9** LXC template.
 
@@ -22,7 +24,8 @@ Step 1: Create Nomad Containers
        :alt: Download Rocky Linux 9 Template
        :align: center
 
-### Create a Nomad Container
+Create a Nomad Container
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 2. Once the template is downloaded, create a new container on any Proxmox node.
 
@@ -32,7 +35,8 @@ Step 1: Create Nomad Containers
 
    **Note:** If you plan to mount volumes in the container, you might want to set it as a privileged container. Privileged containers offer more capabilities but are less secure (e.g., container escape risks). For more information, refer to the official Proxmox documentation: `Linux Container <https://pve.proxmox.com/wiki/Linux_Container>`_.
 
-### Configure Container Settings
+Configure Container Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3. Choose the Rocky Linux template from your image storage.
 
@@ -45,7 +49,8 @@ Step 1: Create Nomad Containers
 Step 2: Connect to the Container and Install Prerequisites
 ----------------------------------------------------------
 
-### Access the Container
+Access the Container
+^^^^^^^^^^^^^^^^^^^^
 
 1. Connect to your newly created container using the Proxmox Console.
 
@@ -69,6 +74,7 @@ Step 2: Connect to the Container and Install Prerequisites
       sudo systemctl status sshd
 
 **Optional:** If you want to access the server using the root account (not recommended), you can either:
+
 - Add your public SSH key to the container.
 - Modify the `/etc/ssh/sshd_config` file to set `PermitRootLogin yes`.
 
@@ -81,7 +87,8 @@ After making changes, restart the SSH service:
 Step 3: Install Nomad and Docker
 --------------------------------
 
-### Install Nomad
+Install Nomad
+^^^^^^^^^^^^^
 
 1. Add the HashiCorp repository and install Nomad:
 
@@ -109,7 +116,8 @@ Step 3: Install Nomad and Docker
 
       sudo systemctl enable --now nomad.service
 
-### Install Docker
+Install Docker
+^^^^^^^^^^^^^^
 
 1. Add the Docker repository and install Docker:
 
@@ -127,7 +135,8 @@ Step 3: Install Nomad and Docker
 Step 4: Configure Nomad
 -----------------------
 
-### Edit the Nomad Configuration File
+Edit the Nomad Configuration File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. The main configuration file for Nomad is located at `/etc/nomad.d/nomad.hcl`. Open this file with your preferred text editor (e.g., `nano` or `vim`).
 
@@ -187,7 +196,8 @@ Step 4: Configure Nomad
 
       sudo systemctl restart nomad.service
 
-### (Optional) Initialize ACLs
+(Optional) Initialize ACLs
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have enabled Nomad ACLs, initialize them by running:
 
