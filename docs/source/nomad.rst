@@ -146,47 +146,43 @@ Edit the Nomad Configuration File
 
       # Nomad Configuration
       datacenter = "dc1"  # Define the datacenter name
-      name       = "nomad_server_1"  # Name of this Nomad server
+      name       = "nomad-server-1"  # Name of this Nomad server
       data_dir   = "/opt/nomad/data"  # Directory where Nomad stores its state
       bind_addr  = "0.0.0.0"  # Bind address for Nomad server (0.0.0.0 binds to all available IPs)
 
       # Enable Access Control Lists (ACLs)
       acl {
-        enabled = true  # Enable ACLs for security
+         enabled = true  # Enable ACLs for security
       }
 
       # Server Configuration
       server {
-        enabled          = true  # Enable this node as a server
-        bootstrap_expect = 1  # Number of servers to wait for before bootstrapping
+         enabled          = true  # Enable this node as a server
+         bootstrap_expect = 1  # Number of servers to wait for before bootstrapping
       }
 
       # Client Configuration
       client {
         enabled = true  # Enable Nomad client functionality
-
-        servers = ["127.0.0.1:4647"]  # List of Nomad servers to connect to
-
-        options {
-          "driver.raw_exec.enable" = "1"  # Enable raw_exec driver for executing jobs locally
-        }
       }
 
       # Raw Exec Plugin Configuration
       plugin "raw_exec" {
-        config {
-          enabled = true  # Enable the raw_exec plugin for executing jobs without containers
-        }
+         config {
+            enabled = true  # Enable the raw_exec plugin for executing jobs without containers
+         }
       }
 
       # Docker Plugin Configuration
       plugin "docker" {
-        config {
-          volumes {
-            enabled = true  # Enable Docker volume support
-          }
-        }
+         config {
+            volumes {
+               enabled = true  # Enable Docker volume support
+            }
+            allow_privileged = true
+         }
       }
+
 
 **Note:** This configuration enables Nomad's Access Control Lists (ACL). To disable ACLs, simply remove the `acl` section from the configuration.
 
@@ -226,6 +222,83 @@ This will generate an initial management token:
       export NOMAD_TOKEN="3fffa295-5f90-acb2-3d47-8ac7add477a6"
 
 5. To make the token persistent, add the export command to your shell configuration file (e.g., `.bashrc`, `.bash_profile`, `.zshrc`).
+
+Step 5: Adding a new client
+---------------------------
+
+If you want to add a new client that will be able to execute tasks, you don't have to go throught all the same steps.
+Since we're using nomad in a virtual machine, we are able to clone it.
+
+Stop the nomad server
+Transform your VM to a template
+Clone the template as many times as wanted. In this case, we create one nomad client per host.
+Choose the "Full Clone" option.
+
+   .. image:: ./images/nomad_clone.png
+       :alt: Clone the nomad template
+       :align: center
+
+On each nomad node, you need to set before boot : 
+
+IP address
+Ressources accord to the host.
+
+Once you finished your cloning, you can start your nomad servers. 
+
+The only file you need to edit on each client is /etc/nomad/nomad.hcl
+
+You need to change : 
+
+name
+Remove server part
+Change the servers ip in the client section to target your nomad server.
+
+
+Nomad Configuration
+datacenter = "dc1"  # Define the datacenter name
+name       = "nomad-client-1"  # Name of this Nomad server
+data_dir   = "/opt/nomad/data"  # Directory where Nomad stores its state
+
+# Enable Access Control Lists (ACLs)
+acl {
+  enabled = true  # Enable ACLs for security
+}
+
+# Client Configuration
+client {
+  enabled = true  # Enable Nomad client functionality
+  servers = ["192.168.13.200:4647"]  # List of Nomad servers to connect to
+  server_join {
+    retry_join = [ "192.168.13.200:4647" ]
+    retry_interval = "5s"
+  }
+}
+
+# Raw Exec Plugin Configuration
+plugin "raw_exec" {
+  config {
+    enabled = true  # Enable the raw_exec plugin for executing jobs without containers
+  }
+}
+
+# Docker Plugin Configuration
+plugin "docker" {
+  config {
+    volumes {
+      enabled = true  # Enable Docker volume support
+    }
+    allow_privileged = true
+  }
+}
+
+
+You can then restart your nomad service
+
+sudo systemctl restart nomad.service
+
+
+
+
 
 Conclusion
 ----------

@@ -1,17 +1,17 @@
-===========================
-Network Configuration With SDN
-===========================
+Annex - SDN : Simple Zone
+=========================
 
 Introduction
 ============
 
-Once you have a working Proxmox cluster, configuring the network is essential to:
+In this section, we'are going to see how to create a a simple EVPN zone which allow to : 
+
 
 - Enable communication between containers and VMs on the same node.
-- Enable communication between containers and VMs on different nodes.
 - Provide internet access to containers and VMs.
-- Set up DHCP.
-- ...
+- Set up DHCP a dhcp server
+
+
 
 Current Network Configuration
 =============================

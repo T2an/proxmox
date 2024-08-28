@@ -10,11 +10,7 @@ In this documentation, you will find detailed instructions on how to configure a
 .. toctree::
    installation
    default_config
-   8021X
    cluster_join
-   networking
-   container
-   evpn
    nfs
    backup
    auth
@@ -22,5 +18,7 @@ In this documentation, you will find detailed instructions on how to configure a
    vm_iso
    ceph
    nomad
-
-
+   8021X
+   networking
+   container
+   evpn

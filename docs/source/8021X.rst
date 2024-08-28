@@ -1,10 +1,8 @@
 
-802.1X Authentication (Wired)
-=============================
+Annex - 802.1X Authentication (Wired)
+=====================================
 
 Due to specific constraints on our network, we need to configure **802.1X authentication** on the Proxmox server. This section will guide you through the process step-by-step.
-
-You can skip this section if you don't need to authenticate in your network. 
 
 1. **Install `wpa_supplicant` Package**
 
