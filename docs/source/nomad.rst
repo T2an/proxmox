@@ -73,12 +73,12 @@ Access the Container
       sudo systemctl enable --now sshd
       sudo systemctl status sshd
 
-**Optional:** If you want to access the server using the root account (not recommended), you can either:
+   **Optional:** If you want to access the server using the root account (not recommended), you can either:
 
-- Add your public SSH key to the container.
-- Modify the `/etc/ssh/sshd_config` file to set `PermitRootLogin yes`.
+   - Add your public SSH key to the container.
+   - Modify the `/etc/ssh/sshd_config` file to set `PermitRootLogin yes`.
 
-After making changes, restart the SSH service:
+   After making changes, restart the SSH service:
 
    .. code-block:: bash
 
@@ -142,7 +142,7 @@ Edit the Nomad Configuration File
 
 2. Add the following configuration:
 
-   .. code-block:: bash
+   .. code-block:: hcl
 
       # Nomad Configuration
       datacenter = "dc1"  # Define the datacenter name
@@ -183,8 +183,7 @@ Edit the Nomad Configuration File
          }
       }
 
-
-**Note:** This configuration enables Nomad's Access Control Lists (ACL). To disable ACLs, simply remove the `acl` section from the configuration.
+   **Note:** This configuration enables Nomad's Access Control Lists (ACLs). To disable ACLs, simply remove the `acl` section from the configuration.
 
 3. Restart the Nomad service to apply the configuration:
 
@@ -201,7 +200,7 @@ If you have enabled Nomad ACLs, initialize them by running:
 
       nomad acl bootstrap
 
-This will generate an initial management token:
+   This will generate an initial management token:
 
    .. code-block:: bash
 
@@ -223,82 +222,80 @@ This will generate an initial management token:
 
 5. To make the token persistent, add the export command to your shell configuration file (e.g., `.bashrc`, `.bash_profile`, `.zshrc`).
 
-Step 5: Adding a new client
+Step 5: Adding a New Client
 ---------------------------
 
-If you want to add a new client that will be able to execute tasks, you don't have to go throught all the same steps.
-Since we're using nomad in a virtual machine, we are able to clone it.
+If you want to add a new client that will be able to execute tasks, you don't have to go through all the same steps. Since we're using Nomad in a virtual machine, we can clone it.
 
-Stop the nomad server
-Transform your VM to a template
-Clone the template as many times as wanted. In this case, we create one nomad client per host.
-Choose the "Full Clone" option.
+1. Stop the Nomad server.
+2. Transform your VM into a template.
+3. Clone the template as many times as needed. In this case, we create one Nomad client per host. Choose the "Full Clone" option.
 
    .. image:: ./images/nomad_clone.png
-       :alt: Clone the nomad template
+       :alt: Clone the Nomad Template
        :align: center
 
-On each nomad node, you need to set before boot : 
+On each Nomad node, you need to set the following before boot:
 
-IP address
-Ressources accord to the host.
+- IP address
+- Resources according to the host.
 
-Once you finished your cloning, you can start your nomad servers. 
+Once you finish cloning, you can start your Nomad servers.
 
-The only file you need to edit on each client is /etc/nomad/nomad.hcl
+The only file you need to edit on each client is `/etc/nomad.d/nomad.hcl`.
 
-You need to change : 
+You need to change:
 
-name
-Remove server part
-Change the servers ip in the client section to target your nomad server.
+- `name`
+- Remove the server section.
+- Change the server's IP in the client section to target your Nomad server.
 
+Here is the configuration for the client:
 
-Nomad Configuration
-datacenter = "dc1"  # Define the datacenter name
-name       = "nomad-client-1"  # Name of this Nomad server
-data_dir   = "/opt/nomad/data"  # Directory where Nomad stores its state
+.. code-block:: hcl
 
-# Enable Access Control Lists (ACLs)
-acl {
-  enabled = true  # Enable ACLs for security
-}
+   # Nomad Configuration
+   datacenter = "dc1"  # Define the datacenter name
+   name       = "nomad-client-1"  # Name of this Nomad client
+   data_dir   = "/opt/nomad/data"  # Directory where Nomad stores its state
 
-# Client Configuration
-client {
-  enabled = true  # Enable Nomad client functionality
-  servers = ["192.168.13.200:4647"]  # List of Nomad servers to connect to
-  server_join {
-    retry_join = [ "192.168.13.200:4647" ]
-    retry_interval = "5s"
-  }
-}
+   # Enable Access Control Lists (ACLs)
+   acl {
+     enabled = true  # Enable ACLs for security
+   }
 
-# Raw Exec Plugin Configuration
-plugin "raw_exec" {
-  config {
-    enabled = true  # Enable the raw_exec plugin for executing jobs without containers
-  }
-}
+   # Client Configuration
+   client {
+     enabled = true  # Enable Nomad client functionality
+     servers = ["192.168.13.200:4647"]  # List of Nomad servers to connect to
+     server_join {
+       retry_join = ["192.168.13.200:4647"]
+       retry_interval = "5s"
+     }
+   }
 
-# Docker Plugin Configuration
-plugin "docker" {
-  config {
-    volumes {
-      enabled = true  # Enable Docker volume support
-    }
-    allow_privileged = true
-  }
-}
+   # Raw Exec Plugin Configuration
+   plugin "raw_exec" {
+     config {
+       enabled = true  # Enable the raw_exec plugin for executing jobs without containers
+     }
+   }
 
+   # Docker Plugin Configuration
+   plugin "docker" {
+     config {
+       volumes {
+         enabled = true  # Enable Docker volume support
+       }
+       allow_privileged = true
+     }
+   }
 
-You can then restart your nomad service
+You can then restart your Nomad service:
 
-sudo systemctl restart nomad.service
+.. code-block:: bash
 
-
-
-
+   sudo systemctl restart nomad.service
 
 Conclusion
 ----------
