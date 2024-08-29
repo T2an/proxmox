@@ -297,7 +297,82 @@ You can then restart your Nomad service:
 
    sudo systemctl restart nomad.service
 
+Step 6: Submit a Job with the Web UI
+------------------------------------
+
+You should be able to access your Nomad web UI at:
+
+   ``http://<nomad_address>:4646``
+
+If you have enabled ACLs, you will need to provide your token.
+
+Next, navigate to **Jobs > Run Job**.
+
+   .. image:: ./images/nomad_job.png
+      :alt: Run Job
+      :align: center
+
+From here, you can write your own job or choose a template.
+
+You have two main ways to run a job:
+
+- **Raw Exec**
+- **Docker Exec**
+
+You may prefer using **Docker Exec**, which allows you to create a layer between your server and your job execution, protecting it in case of misconfiguration or dependency issues.
+
+Here is an example of a Docker job:
+
+.. code-block:: hcl
+
+   job "Simulation" {
+     # Specifies the datacenter where this job should be run
+     # This can be omitted and it will default to ["*"]
+     datacenters = ["*"]
+  
+     type = "batch"
+
+     # A group defines a series of tasks that should be co-located
+     # on the same client (host). All tasks within a group will be
+     # placed on the same host.
+     group "servers" {    
+       # Tasks are individual units of work that are run by Nomad.
+       task "simulation" {
+         driver = "docker"
+
+         config {
+           image = "nicolasfarabegoli/alchemist-experiments-bootstrap-simulation:1.2.1"
+         }
+
+         # Specify the maximum resources required to run the task
+         resources {
+           cpu    = 50000
+           memory = 64000
+         }
+       }
+     }
+   }
+
+Step 7: Connect to Nomad Using the CLI on Your Working Machine
+--------------------------------------------------------------
+
+Install Nomad on your working machine and set the following environment variables:
+
+.. code-block:: bash
+
+   export NOMAD_ADDR=http://192.168.13.201:4646
+
+   # If you have enabled ACLs, also set:
+   export NOMAD_TOKEN=8485ed276-457a-66d5-5c24-6324d545538fb
+
+You should now be able to submit jobs to your Nomad cluster. Verify your connection by typing:
+
+.. code-block:: bash
+
+   nomad node status
+
+
 Conclusion
 ----------
 
-By following these steps, you have successfully set up a Nomad cluster on Proxmox VE. Your cluster is now ready to manage containerized workloads with Nomad and Docker. In the next section, we will explore deploying a sample application using Nomad.
+By following these steps, you have successfully set up a Nomad cluster on Proxmox VE. Your cluster is now ready to manage containerized workloads with Nomad and Docker.
